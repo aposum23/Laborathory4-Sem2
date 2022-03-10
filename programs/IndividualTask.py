@@ -3,7 +3,6 @@
 
 import pandas as pd
 import json
-from jsonschema import validate
 from pathlib import Path
 
 
@@ -33,16 +32,6 @@ def add_element():
     trains['name'] = name
     trains['num'] = int(num)
     trains['tm'] = tm
-    schema = {
-        "type": "object",
-        "properties": {
-            "description": {"type": "string"},
-            "status": {"type": "boolean"},
-            "value_a": {"type": "number"},
-            "value_b": {"type": "number"},
-        },
-    }
-    validate(instance=trains, schema=schema)
     with open(FILE_NAME, 'a') as f:
         f.write(json.dumps(trains) + '\n')
 
