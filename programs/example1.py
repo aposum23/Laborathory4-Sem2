@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+
 import json
 import sys
 from datetime import date
+
 
 def get_worker():
     """
@@ -17,6 +20,7 @@ def get_worker():
     'post': post,
     'year': year,
     }
+
 
 def display_workers(staff):
     """
@@ -56,6 +60,7 @@ def display_workers(staff):
     else:
         print("Список работников пуст.")
 
+        
 def select_workers(staff, period):
     """
     Выбрать работников с заданным стажем.
@@ -70,6 +75,7 @@ def select_workers(staff, period):
             # Возвратить список выбранных работников.
     return result
 
+
 def save_workers(file_name, staff):
     """
     Сохранить всех работников в файл JSON.
@@ -81,6 +87,7 @@ def save_workers(file_name, staff):
         # Для поддержки кирилицы установим ensure_ascii=False
         json.dump(staff, fout, ensure_ascii=False, indent=4)
 
+        
 def load_workers(file_name):
     """
     Загрузить всех работников из файла JSON.
@@ -89,6 +96,7 @@ def load_workers(file_name):
     with open(file_name, "r", encoding="utf-8") as fin:
         return json.load(fin)
 
+    
 def main():
     """
     Главная функция программы.
@@ -149,5 +157,6 @@ def main():
         else:
             print(f"Неизвестная команда {command}", file=sys.stderr)
 
+            
 if __name__ == '__main__':
     main()
