@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import pandas as pd
 import json
 from jsonschema import validate
 from pathlib import Path
@@ -9,20 +8,6 @@ from pathlib import Path
 
 FILE_NAME = 'json_file.json'
 SETTINGS_FILE = 'settings.json'
-
-
-def make_table():
-    with open(FILE_NAME, 'r') as f:
-        trains = json.loads(f.read())
-        num_lst = []
-        end_point_lst = []
-        for trn in trains:
-            num_lst.append(trn['num'])
-            end_point_lst.append(trn['name'])
-        data = {'Номер поезда:': num_lst, 'Конечный пункт:': end_point_lst}
-        df = pd.DataFrame(data=data)
-        print(df)
-
 
 
 def add_element():
